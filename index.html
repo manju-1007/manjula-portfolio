@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manjula Goddalla | AI-First Software Engineer & Data Science Professional</title>
+    <meta name="description" content="Cinematic portfolio of Manjula Goddalla, B.Tech Data Science student and AI-First Software Engineer aspirant specializing in Python, Machine Learning, and Data-Driven Solutions.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkbase: '#030712',
+                        cardbg: '#080d1a',
+                        accentpurple: '#8b5cf6',
+                        accentviolet: '#6d28d9',
+                        accentblue: '#3b82f6',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Space Grotesk', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #030712;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+        
+        .glass-panel {
+            background: rgba(8, 13, 26, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(139, 92, 246, 0.15);
+        }
+
+        .glass-panel-hover:hover {
+            border-color: rgba(139, 92, 246, 0.4);
+            box-shadow: 0 0 30px rgba(139, 92, 246, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #ffffff 0%, #c4b5fd 40%, #60a5fa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .bg-grid-pattern {
+            background-size: 50px 50px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+        }
+
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal-on-scroll.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #030712;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+    </style>
+</head>
+<body class="bg-darkbase text-gray-100 selection:bg-purple-500 selection:text-white">
+
+    <!-- Cinematic Intro Sequence -->
+    <div id="cinematic-loader" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-darkbase transition-opacity duration-700">
+        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+        <div class="relative z-10 text-center px-4 max-w-4xl">
+            <div id="intro-text-1" class="font-mono text-xs uppercase tracking-[0.4em] text-purple-400 transition-all duration-500 opacity-0 transform translate-y-4">INITIALIZING DATA SCIENCE PORTFOLIO...</div>
+            <div id="intro-text-2" class="font-heading text-3xl md:text-6xl font-extrabold text-white transition-all duration-700 opacity-0 absolute inset-x-0 transform translate-y-4">MANJULA GODDALLA</div>
+        </div>
+        <button id="skip-intro" class="absolute bottom-10 px-6 py-2.5 rounded-xl glass-panel text-xs font-mono uppercase tracking-widest text-gray-300 hover:text-white hover:border-purple-500/50 transition-all z-20 shadow-lg">
+            Skip Intro &rarr;
+        </button>
+    </div>
+
+    <!-- Mouse-following Glow Effect -->
+    <div id="cursor-glow" class="pointer-events-none fixed inset-0 z-30 transition-opacity duration-300 hidden lg:block" style="background: radial-gradient(700px at 50% 50%, rgba(139, 92, 246, 0.09), transparent 80%);"></div>
+
+    <!-- Sticky Navigation -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 border-b border-transparent">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#home" class="font-heading text-lg font-bold tracking-wider text-gradient flex items-center gap-2">
+                <span>MANJULA GODDALLA</span>
+            </a>
+            
+            <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-300">
+                <a href="#about" class="hover:text-purple-400 transition-colors">About</a>
+                <a href="#skills" class="hover:text-purple-400 transition-colors">Skills</a>
+                <a href="#experience" class="hover:text-purple-400 transition-colors">Experience</a>
+                <a href="#projects" class="hover:text-purple-400 transition-colors">Projects</a>
+                <a href="#certifications" class="hover:text-purple-400 transition-colors">Certifications</a>
+                <a href="#education" class="hover:text-purple-400 transition-colors">Education</a>
+                <a href="#contact" class="hover:text-purple-400 transition-colors">Contact</a>
+            </nav>
+
+            <div class="hidden lg:flex items-center gap-4">
+                <a href="mailto:goddallamanjula@gmail.com" class="px-4 py-2 text-xs font-semibold uppercase tracking-wider rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:opacity-95 transition-all shadow-lg shadow-purple-500/20">
+                    Get in Touch
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="lg:hidden text-gray-300 hover:text-white focus:outline-none p-2">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="hidden lg:hidden glass-panel border-t border-gray-800 px-6 py-6 space-y-4 shadow-2xl">
+            <a href="#about" class="block text-base font-medium text-gray-300 hover:text-purple-400">About</a>
+            <a href="#skills" class="block text-base font-medium text-gray-300 hover:text-purple-400">Skills</a>
+            <a href="#experience" class="block text-base font-medium text-gray-300 hover:text-purple-400">Experience</a>
+            <a href="#projects" class="block text-base font-medium text-gray-300 hover:text-purple-400">Projects</a>
+            <a href="#certifications" class="block text-base font-medium text-gray-300 hover:text-purple-400">Certifications</a>
+            <a href="#education" class="block text-base font-medium text-gray-300 hover:text-purple-400">Education</a>
+            <a href="#contact" class="block text-base font-medium text-gray-300 hover:text-purple-400">Contact</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center pt-20 bg-grid-pattern overflow-hidden">
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none animate-pulse"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none animate-pulse" style="animation-duration: 5s;"></div>
+
+        <div class="max-w-5xl mx-auto px-6 py-20 text-center relative z-10">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel text-xs font-mono text-purple-300 mb-6 border border-purple-500/30 shadow-lg">
+                <span class="w-2 h-2 rounded-full bg-purple-400 animate-ping"></span>
+                B.Tech Data Science (2023–2027) • CGPA: 7.9/10
+            </div>
+
+            <h1 class="font-heading text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight mb-6">
+                MANJULA <span class="text-gradient">GODDALLA</span>
+            </h1>
+
+            <p class="font-heading text-xl md:text-2xl text-purple-300 font-semibold tracking-wide mb-6">
+                AI-First Software Engineer Aspirant
+            </p>
+
+            <p class="max-w-2xl mx-auto text-base md:text-lg text-gray-400 mb-10 leading-relaxed">
+                Passionate about building practical software and AI-based solutions using Python, machine learning, and data-driven approaches. Eager to learn new technologies and contribute to a dynamic team.
+            </p>
+
+            <div class="flex flex-wrap items-center justify-center gap-4">
+                <a href="#projects" class="px-8 py-4 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold tracking-wide hover:shadow-xl hover:shadow-purple-500/25 transition-all flex items-center gap-2 group">
+                    View Projects <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+                <a href="#contact" class="px-8 py-4 rounded-xl glass-panel text-gray-200 font-semibold tracking-wide hover:bg-gray-800/50 transition-all border border-gray-700">
+                    Contact Me
+                </a>
+                <a href="https://linkedin.com/in/manjula-goddalla-23473b2a1" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl glass-panel text-gray-300 hover:text-purple-400 hover:border-purple-500/40 transition-all" aria-label="LinkedIn">
+                    <i data-lucide="linkedin" class="w-5 h-5"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 text-gray-500 animate-bounce">
+            <span class="text-xs uppercase tracking-widest font-mono">Scroll</span>
+            <i data-lucide="chevron-down" class="w-4 h-4"></i>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="py-24 relative reveal-on-scroll">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold tracking-tight mb-4">About <span class="text-gradient">Me</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="glass-panel p-8 rounded-2xl glass-panel-hover transition-all lg:col-span-2 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="p-3 rounded-xl bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                                <i data-lucide="user" class="w-6 h-6"></i>
+                            </div>
+                            <h3 class="font-heading text-xl font-semibold">Professional Profile</h3>
+                        </div>
+                        <p class="text-gray-300 leading-relaxed mb-6">
+                            I am an AI-first Software Engineer aspirant based in Andhra Pradesh, India, currently pursuing a B.Tech in Data Science at Andhra Loyola Institute of Engineering and Technology. I combine strong communication, analytical thinking, problem-solving, and adaptability to engineer practical solutions.
+                        </p>
+                        <p class="text-gray-400 leading-relaxed">
+                            My focus centers on developing robust software and AI-based systems using Python, machine learning, and comprehensive data-driven methodologies. Always eager to master cutting-edge technologies and drive meaningful impact in high-performance engineering environments.
+                        </p>
+                    </div>
+                    <div class="mt-8 pt-6 border-t border-gray-800/80 flex flex-wrap gap-4 text-sm font-mono text-purple-300">
+                        <span>📍 Andhra Pradesh, India</span>
+                        <span>🎓 B.Tech Data Science</span>
+                        <span>✉️ goddallamanjula@gmail.com</span>
+                    </div>
+                </div>
+
+                <div class="space-y-8">
+                    <div class="glass-panel p-6 rounded-2xl glass-panel-hover transition-all">
+                        <h3 class="font-heading text-lg font-semibold mb-4 flex items-center gap-2">
+                            <i data-lucide="award" class="w-5 h-5 text-purple-400"></i> Core Strengths
+                        </h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1.5 rounded-lg bg-purple-500/15 text-purple-300 text-xs font-medium border border-purple-500/20">Communication</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-purple-500/15 text-purple-300 text-xs font-medium border border-purple-500/20">Analytical Thinking</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-purple-500/15 text-purple-300 text-xs font-medium border border-purple-500/20">Problem Solving</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-purple-500/15 text-purple-300 text-xs font-medium border border-purple-500/20">Adaptability</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-purple-500/15 text-purple-300 text-xs font-medium border border-purple-500/20">Team Collaboration</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-purple-500/15 text-purple-300 text-xs font-medium border border-purple-500/20">Continuous Learning</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-panel p-6 rounded-2xl glass-panel-hover transition-all">
+                        <h3 class="font-heading text-lg font-semibold mb-4 flex items-center gap-2">
+                            <i data-lucide="languages" class="w-5 h-5 text-blue-400"></i> Languages Known
+                        </h3>
+                        <div class="flex gap-4">
+                            <div class="flex-1 glass-panel p-3 rounded-xl text-center border border-gray-800">
+                                <span class="block font-semibold text-sm text-gray-200">Telugu</span>
+                                <span class="text-xs text-gray-400">Native</span>
+                            </div>
+                            <div class="flex-1 glass-panel p-3 rounded-xl text-center border border-gray-800">
+                                <span class="block font-semibold text-sm text-gray-200">English</span>
+                                <span class="text-xs text-gray-400">Proficient</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Skills Section -->
+    <section id="skills" class="py-24 relative bg-gray-950/40 reveal-on-scroll">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold tracking-tight mb-4">Technical <span class="text-gradient">Skills</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <div class="glass-panel p-6 rounded-2xl glass-panel-hover transition-all">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="p-2.5 rounded-xl bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                            <i data-lucide="code" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-heading text-lg font-semibold">Programming</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 rounded-lg bg-darkbase text-gray-300 text-sm border border-gray-800">Python</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-darkbase text-gray-300 text-sm border border-gray-800">JavaScript (Basics)</span>
+                    </div>
+                </div>
+
+                <div class="glass-panel p-6 rounded-2xl glass-panel-hover transition-all">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="p-2.5 rounded-xl bg-blue-500/10 text-blue-400 border border-blue-500/20">
+                            <i data-lucide="cpu" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-heading text-lg font-semibold">Data Science & ML</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 rounded-lg bg-darkbase text-gray-300 text-sm border border-gray-800">Machine Learning (Basics)</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-darkbase text-gray-300 text-sm border border-gray-800">Data Visualization</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-darkbase text-gray-300 text-sm border border-gray-800">Data Structures</span>
+                    </div>
+                </div>
+
+                <div class="glass-panel p-6 rounded-2xl glass-panel-hover transition-all">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="p-2.5 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                            <i data-lucide="bar-chart-3" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-heading text-lg font-semibold">Tools & Analytics</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 rounded-lg bg-darkbase text-gray-300 text-sm border border-gray-800">Microsoft Excel</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-darkbase text-gray-300 text-sm border border-gray-800">Figma (Beginner)</span>
+                    </div>
+                </div>
+
+                <div class="glass-panel p-6 rounded-2xl glass-panel-hover transition-all md:col-span-2 lg:col-span-3">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="p-2.5 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/20">
+                            <i data-lucide="database" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-heading text-lg font-semibold">Cloud & Platforms</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 rounded-lg bg-darkbase text-gray-300 text-sm border border-gray-800">Firebase</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience / Internships Section -->
+    <section id="experience" class="py-24 relative reveal-on-scroll">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold tracking-tight mb-4">Internship <span class="text-gradient">Experience</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="space-y-8 relative before:absolute before:inset-0 before:left-7 before:w-0.5 before:bg-gradient-to-b before:from-purple-500 before:via-blue-500 before:to-transparent">
+                
+                <div class="relative flex items-start gap-6 group">
+                    <div class="w-14 h-14 rounded-2xl glass-panel flex items-center justify-center shrink-0 border border-purple-500/30 text-purple-400 z-10 group-hover:scale-110 transition-transform shadow-lg">
+                        <i data-lucide="shield-check" class="w-6 h-6"></i>
+                    </div>
+                    <div class="glass-panel p-8 rounded-2xl flex-1 glass-panel-hover transition-all">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                            <h3 class="font-heading text-xl font-bold text-white">Cyber Security Intern</h3>
+                            <span class="px-3 py-1 rounded-full bg-purple-500/15 text-purple-300 text-xs font-mono border border-purple-500/20">Jun 2024 - Jul 2024</span>
+                        </div>
+                        <h4 class="text-purple-400 font-medium text-sm mb-4">Supraja Technologies</h4>
+                        <ul class="space-y-2 text-gray-300 text-sm">
+                            <li class="flex items-start gap-2">
+                                <span class="text-purple-400 mt-1">•</span> Worked on cybersecurity concepts and secure application practices.
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-purple-400 mt-1">•</span> Developed a Password Strength Checker project that evaluates password strength using security rules.
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-purple-400 mt-1">•</span> Learned authentication, password security and vulnerability awareness.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="relative flex items-start gap-6 group">
+                    <div class="w-14 h-14 rounded-2xl glass-panel flex items-center justify-center shrink-0 border border-blue-500/30 text-blue-400 z-10 group-hover:scale-110 transition-transform shadow-lg">
+                        <i data-lucide="brain" class="w-6 h-6"></i>
+                    </div>
+                    <div class="glass-panel p-8 rounded-2xl flex-1 glass-panel-hover transition-all">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                            <h3 class="font-heading text-xl font-bold text-white">Data Science Intern</h3>
+                            <span class="px-3 py-1 rounded-full bg-blue-500/15 text-blue-300 text-xs font-mono border border-blue-500/20">May 2025 - Jun 2025</span>
+                        </div>
+                        <h4 class="text-blue-400 font-medium text-sm mb-4">Data Valley</h4>
+                        <ul class="space-y-2 text-gray-300 text-sm">
+                            <li class="flex items-start gap-2">
+                                <span class="text-blue-400 mt-1">•</span> Worked on data preprocessing, data visualization and machine learning concepts.
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-blue-400 mt-1">•</span> Performed exploratory data analysis using Python and Excel.
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-blue-400 mt-1">•</span> Gained practical exposure to classification models and data-driven problem solving.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 relative bg-gray-950/40 reveal-on-scroll">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold tracking-tight mb-4">Featured <span class="text-gradient">Projects</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <div class="glass-panel p-8 rounded-2xl glass-panel-hover transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="p-3 rounded-xl bg-purple-500/10 text-purple-400 border border-purple-500/20 group-hover:scale-110 transition-transform">
+                                <i data-lucide="cloud-rain" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-mono text-purple-300 px-3 py-1 rounded-full bg-purple-500/15 border border-purple-500/20">IoT & Machine Learning</span>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-white mb-2">1. AI-Powered Climate Detection</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                            Built an IoT-based climate monitoring solution using ESP32, BME280, Rain Sensors, Machine Learning, and Firebase Dashboard.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="flex flex-wrap gap-2 pt-4 border-t border-gray-800 text-xs font-mono text-gray-400">
+                            <span class="px-2.5 py-1 rounded bg-darkbase border border-gray-800">Machine Learning</span>
+                            <span class="px-2.5 py-1 rounded bg-darkbase border border-gray-800">ESP32</span>
+                            <span class="px-2.5 py-1 rounded bg-darkbase border border-gray-800">BME280</span>
+                            <span class="px-2.5 py-1 rounded bg-darkbase border border-gray-800">Rain Sensors</span>
+                            <span class="px-2.5 py-1 rounded bg-darkbase border border-gray-800">Firebase Dashboard</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-panel p-8 rounded-2xl glass-panel-hover transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="p-3 rounded-xl bg-blue-500/10 text-blue-400 border border-blue-500/20 group-hover:scale-110 transition-transform">
+                                <i data-lucide="music" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-mono text-blue-300 px-3 py-1 rounded-full bg-blue-500/15 border border-blue-500/20">AI Recommendation</span>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-white mb-2">2. Harmonic Forecast</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                            Developed an AI-based music recommendation project using machine learning concepts.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="flex flex-wrap gap-2 pt-4 border-t border-gray-800 text-xs font-mono text-gray-400">
+                            <span class="px-2.5 py-1 rounded bg-darkbase border border-gray-800">AI-Based Music Recommendation</span>
+                            <span class="px-2.5 py-1 rounded bg-darkbase border border-gray-800">Machine Learning</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-panel p-8 rounded-2xl glass-panel-hover transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="p-3 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 group-hover:scale-110 transition-transform">
+                                <i data-lucide="users" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-mono text-emerald-300 px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/20">Data Analytics</span>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-white mb-2">3. Smart Recruitment Assistant</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                            Built a candidate analysis system using Random Forest, K-Means, and candidate data.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="flex flex-wrap gap-2 pt-4 border-t border-gray-800 text-xs font-mono text-gray-400">
+                            <span class="px-2.5 py-1 rounded bg-darkbase border border-gray-800">Random Forest</span>
+                            <span class="px-2.5 py-1 rounded bg-darkbase border border-gray-800">K-Means</span>
+                            <span class="px-2.5 py-1 rounded bg-darkbase border border-gray-800">Candidate Data</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-panel p-8 rounded-2xl glass-panel-hover transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="p-3 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/20 group-hover:scale-110 transition-transform">
+                                <i data-lucide="lock" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-mono text-amber-300 px-3 py-1 rounded-full bg-amber-500/15 border border-amber-500/20">Cybersecurity</span>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-white mb-2">4. Password Strength Checker</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                            Created a cybersecurity project to evaluate password strength using security rules.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="flex flex-wrap gap-2 pt-4 border-t border-gray-800 text-xs font-mono text-gray-400">
+                            <span class="px-2.5 py-1 rounded bg-darkbase border border-gray-800">Cybersecurity Project</span>
+                            <span class="px-2.5 py-1 rounded bg-darkbase border border-gray-800">Security Rules</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="py-24 relative reveal-on-scroll">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold tracking-tight mb-4">Certifications & <span class="text-gradient">Credentials</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <div class="glass-panel p-6 rounded-2xl glass-panel-hover transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="p-2.5 rounded-xl bg-purple-500/10 text-purple-400 border border-purple-500/20 w-fit mb-4">
+                            <i data-lucide="award" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-heading text-base font-bold text-white mb-2">Deloitte Australia Data Analytics Job Simulation</h3>
+                    </div>
+                    <span class="text-xs font-mono text-purple-300 pt-4 border-t border-gray-800">Forage</span>
+                </div>
+
+                <div class="glass-panel p-6 rounded-2xl glass-panel-hover transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="p-2.5 rounded-xl bg-blue-500/10 text-blue-400 border border-blue-500/20 w-fit mb-4">
+                            <i data-lucide="award" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-heading text-base font-bold text-white mb-2">Digital Skills: User Experience</h3>
+                    </div>
+                    <span class="text-xs font-mono text-blue-300 pt-4 border-t border-gray-800">Accenture</span>
+                </div>
+
+                <div class="glass-panel p-6 rounded-2xl glass-panel-hover transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="p-2.5 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 w-fit mb-4">
+                            <i data-lucide="award" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-heading text-base font-bold text-white mb-2">Excel Data Visualization</h3>
+                    </div>
+                    <span class="text-xs font-mono text-emerald-300 pt-4 border-t border-gray-800">LinkedIn</span>
+                </div>
+
+                <div class="glass-panel p-6 rounded-2xl glass-panel-hover transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="p-2.5 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/20 w-fit mb-4">
+                            <i data-lucide="award" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-heading text-base font-bold text-white mb-2">Brainstorming</h3>
+                    </div>
+                    <span class="text-xs font-mono text-amber-300 pt-4 border-t border-gray-800">Infosys Springboard</span>
+                </div>
+
+                <div class="glass-panel p-6 rounded-2xl glass-panel-hover transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="p-2.5 rounded-xl bg-rose-500/10 text-rose-400 border border-rose-500/20 w-fit mb-4">
+                            <i data-lucide="award" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-heading text-base font-bold text-white mb-2">1M1B Green Internship</h3>
+                    </div>
+                    <span class="text-xs font-mono text-rose-300 pt-4 border-t border-gray-800">1M1B</span>
+                </div>
+
+                <div class="glass-panel p-6 rounded-2xl glass-panel-hover transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="p-2.5 rounded-xl bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 w-fit mb-4">
+                            <i data-lucide="award" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-heading text-base font-bold text-white mb-2">Internet of Things (IoT)</h3>
+                    </div>
+                    <span class="text-xs font-mono text-cyan-300 pt-4 border-t border-gray-800">NPTEL</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-24 relative bg-gray-950/40 reveal-on-scroll">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold tracking-tight mb-4">Academic <span class="text-gradient">Timeline</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="space-y-6">
+                
+                <div class="glass-panel p-8 rounded-2xl glass-panel-hover transition-all flex flex-col md:flex-row md:items-center justify-between gap-6">
+                    <div>
+                        <span class="px-3 py-1 rounded-full bg-purple-500/15 text-purple-300 text-xs font-mono border border-purple-500/20 mb-3 inline-block">2023 - 2027</span>
+                        <h3 class="font-heading text-xl font-bold text-white">B.Tech - Data Science</h3>
+                        <p class="text-purple-400 text-sm mt-1">Andhra Loyola Institute of Engineering and Technology</p>
+                    </div>
+                    <div class="px-6 py-3 rounded-xl bg-darkbase border border-gray-800 text-center shrink-0">
+                        <span class="block text-xs text-gray-400 uppercase tracking-wider">CGPA</span>
+                        <span class="font-heading text-lg font-bold text-purple-300">7.9 / 10</span>
+                    </div>
+                </div>
+
+                <div class="glass-panel p-8 rounded-2xl glass-panel-hover transition-all flex flex-col md:flex-row md:items-center justify-between gap-6">
+                    <div>
+                        <span class="px-3 py-1 rounded-full bg-blue-500/15 text-blue-300 text-xs font-mono border border-purple-500/20 mb-3 inline-block">2021 - 2023</span>
+                        <h3 class="font-heading text-xl font-bold text-white">Intermediate (MPC)</h3>
+                        <p class="text-blue-400 text-sm mt-1">Sri Sarada Junior College</p>
+                    </div>
+                    <div class="px-6 py-3 rounded-xl bg-darkbase border border-gray-800 text-center shrink-0">
+                        <span class="block text-xs text-gray-400 uppercase tracking-wider">CGPA</span>
+                        <span class="font-heading text-lg font-bold text-blue-300">7.07 / 10</span>
+                    </div>
+                </div>
+
+                <div class="glass-panel p-8 rounded-2xl glass-panel-hover transition-all flex flex-col md:flex-row md:items-center justify-between gap-6">
+                    <div>
+                        <span class="px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-300 text-xs font-mono border border-purple-500/20 mb-3 inline-block">2019 - 2021</span>
+                        <h3 class="font-heading text-xl font-bold text-white">SSC</h3>
+                        <p class="text-emerald-400 text-sm mt-1">Bhashyam English Medium High School</p>
+                    </div>
+                    <div class="px-6 py-3 rounded-xl bg-darkbase border border-gray-800 text-center shrink-0">
+                        <span class="block text-xs text-gray-400 uppercase tracking-wider">CGPA</span>
+                        <span class="font-heading text-lg font-bold text-emerald-300">10 / 10</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume CTA Section -->
+    <section class="py-20 relative overflow-hidden reveal-on-scroll">
+        <div class="absolute inset-0 bg-gradient-to-r from-purple-900/20 to-blue-900/20 pointer-events-none"></div>
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-10 glass-panel p-12 rounded-3xl border border-purple-500/30 shadow-2xl">
+            <h2 class="font-heading text-3xl md:text-4xl font-bold tracking-tight mb-4">Want to know more?</h2>
+            <p class="text-gray-300 max-w-xl mx-auto mb-8 text-sm md:text-base">
+                Explore the complete verified credentials and experience details directly from my resume source.
+            </p>
+            <div class="flex flex-wrap items-center justify-center gap-4">
+                <a href="#contact" class="px-8 py-4 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold tracking-wide hover:shadow-xl hover:shadow-purple-500/25 transition-all flex items-center gap-2">
+                    <i data-lucide="download" class="w-4 h-4"></i> Download Resume
+                </a>
+                <a href="mailto:goddallamanjula@gmail.com" class="px-8 py-4 rounded-xl glass-panel text-gray-200 font-semibold tracking-wide hover:bg-gray-800/50 transition-all border border-gray-700 flex items-center gap-2">
+                    <i data-lucide="eye" class="w-4 h-4"></i> View Resume Details
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 relative reveal-on-scroll">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold tracking-tight mb-4">LET'S BUILD SOMETHING <span class="text-gradient">MEANINGFUL.</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto rounded-full"></div>
+                <p class="text-gray-400 mt-4 text-sm md:text-base">Let's connect for opportunities, collaborations, or professional discussions.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <a href="mailto:goddallamanjula@gmail.com" class="glass-panel p-8 rounded-2xl glass-panel-hover transition-all flex items-center gap-5 group">
+                    <div class="p-4 rounded-xl bg-purple-500/10 text-purple-400 border border-purple-500/20 group-hover:scale-110 transition-transform">
+                        <i data-lucide="mail" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <span class="block text-xs font-mono text-gray-400 uppercase tracking-wider mb-1">Email Me</span>
+                        <span class="font-semibold text-white text-sm md:text-base">goddallamanjula@gmail.com</span>
+                    </div>
+                </a>
+
+                <a href="tel:+919390491077" class="glass-panel p-8 rounded-2xl glass-panel-hover transition-all flex items-center gap-5 group">
+                    <div class="p-4 rounded-xl bg-blue-500/10 text-blue-400 border border-blue-500/20 group-hover:scale-110 transition-transform">
+                        <i data-lucide="phone" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <span class="block text-xs font-mono text-gray-400 uppercase tracking-wider mb-1">Call Me</span>
+                        <span class="font-semibold text-white text-sm md:text-base">+91 9390491077</span>
+                    </div>
+                </a>
+
+                <a href="https://linkedin.com/in/manjula-goddalla-23473b2a1" target="_blank" rel="noopener noreferrer" class="glass-panel p-8 rounded-2xl glass-panel-hover transition-all flex items-center gap-5 group md:col-span-2">
+                    <div class="p-4 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 group-hover:scale-110 transition-transform">
+                        <i data-lucide="linkedin" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <span class="block text-xs font-mono text-gray-400 uppercase tracking-wider mb-1">LinkedIn Profile</span>
+                        <span class="font-semibold text-white text-sm md:text-base">linkedin.com/in/manjula-goddalla-23473b2a1</span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Cinematic Ending & Footer -->
+    <footer class="py-16 border-t border-gray-800/80 bg-gray-950 text-center relative">
+        <div class="max-w-7xl mx-auto px-6 space-y-4">
+            <p class="text-xs font-mono uppercase tracking-[0.3em] text-gray-400">THANK YOU FOR EXPLORING</p>
+            <h3 class="font-heading text-2xl md:text-3xl font-extrabold text-gradient">MANJULA GODDALLA</h3>
+            <p class="text-xs text-gray-500 font-mono pt-4">
+                © 2026 Manjula Goddalla. Built with cinematic precision & recruiter-ready intent.
+            </p>
+        </div>
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="absolute right-8 bottom-8 p-3 rounded-xl glass-panel text-gray-300 hover:text-white hover:border-purple-500/40 transition-all shadow-lg" aria-label="Scroll to top">
+            <i data-lucide="arrow-up" class="w-5 h-5"></i>
+        </button>
+    </footer>
+
+    <!-- Interactive Scripting & Scroll Animations -->
+    <script>
+        lucide.createIcons();
+
+        // Optimized Cinematic Intro Logic
+        const loader = document.getElementById('cinematic-loader');
+        const text1 = document.getElementById('intro-text-1');
+        const text2 = document.getElementById('intro-text-2');
+        const skipBtn = document.getElementById('skip-intro');
+
+        function hideIntro() {
+            loader.style.opacity = '0';
+            setTimeout(() => loader.style.display = 'none', 700);
+        }
+
+        skipBtn.addEventListener('click', hideIntro);
+
+        // Step 1: Show Subtitle
+        setTimeout(() => {
+            text1.style.opacity = '1';
+            text1.style.transform = 'translateY(0)';
+        }, 200);
+
+        // Step 2: Transition to Name MANJULA GODDALLA smoothly
+        setTimeout(() => {
+            text1.style.opacity = '0';
+            text2.style.opacity = '1';
+            text2.style.transform = 'translateY(0)';
+        }, 1400);
+
+        // Step 3: Automatically dismiss intro
+        setTimeout(hideIntro, 3200);
+
+        // Scroll Reveal Animation (Intersection Observer)
+        const observerOptions = {
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-on-scroll').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 40) {
+                navbar.classList.add('glass-panel', 'border-gray-800/50', 'py-2');
+                navbar.classList.remove('py-4');
+            } else {
+                navbar.classList.remove('glass-panel', 'border-gray-800/50', 'py-2');
+                navbar.classList.add('py-4');
+            }
+        });
+
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Mouse following glow
+        const cursorGlow = document.getElementById('cursor-glow');
+        window.addEventListener('mousemove', (e) => {
+            const x = e.clientX;
+            const y = e.clientY;
+            cursorGlow.style.background = `radial-gradient(700px at ${x}px ${y}px, rgba(139, 92, 246, 0.09), transparent 80%)`;
+        });
+    </script>
+</body>
+</html>
