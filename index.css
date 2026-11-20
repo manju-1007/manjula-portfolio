@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .glass-card {
+    @apply bg-white/80 dark:bg-navy-900/70 backdrop-blur-md border border-purple-200/70 dark:border-purple-500/20;
+  }
+}
